@@ -73,15 +73,18 @@ for r in range(5):
                 st.button(label, key=f"btn_{key_id}", disabled=True, use_container_width=True)
             else:
                 display_label = "🚩" if key_id in st.session_state.flags else "❓" 
+                 
                 if st.button(display_label, key=f"btn_{key_id}", use_container_width=True):
                     if st.session_state.flag_mode:
                         if key_id in st.session_state.flags:
                             st.session_state.flags.remove(key_id)
                         else:
                             st.session_state.flags.add(key_id)
+                    
                     else:
                         if key_id not in st.session_state.flags:
-                            st.session_state.revelead[key_id] = True
+                            st.session_state.revealed[key_id] = True
+
                             if st.session_state.board[r][c] == "💣":
                                 st.session_state.game_over = True
                                 st.snow()
@@ -93,3 +96,4 @@ for r in range(5):
                                     st.session_state.won = True
                                     st.balloons()
                     st.rerun()
+                
