@@ -69,7 +69,7 @@ for r in range(5):
             elif st.session_state.game_over and st.session_state.board[r][c] == "💣":
                 st.button("💣", key=f"btn_{key_id}", disabled=True, use_container_width=True)
             elif st.session_state.game_over or st.session_state.won:
-                label = "🚩" if key_id in st.session_state.flags else "❓"
+                label = "🚩" if key_id in st.session_state.flags else ""
                 st.button(label, key=f"btn_{key_id}", disabled=True, use_container_width=True)
             else:
                 display_label = "🚩" if key_id in st.session_state.flags else "" 
