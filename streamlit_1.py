@@ -25,9 +25,6 @@ if user_choice:
       or (user_choice == "Scissors" and comp_choice == "Paper")
   ):
     st.success("You win!")
-  else:
-    st.error("You lose!")
-    
     st.warning("Spin a wheel to win you bums not rock, paper, scissors.")
     
     with st.spinner("Spinning the wheel to see if you actually win"):
@@ -40,3 +37,8 @@ if user_choice:
         st.balloons()
     else:
         st.error("Of course you lost, you never won in the first place :D")
+
+  else:
+    st.error("You lose!")
+
+    
