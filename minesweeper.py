@@ -26,12 +26,12 @@ if "board" not in st.session_state:
             board[r][c] = "0" if count == 0 else str(count)
             
     st.session_state.board = board
-    st.session_state.revealed = {}  # Tracks dug positions
-    st.session_state.flags = set()   # Tracks flagged positions
+    st.session_state.revealed = {} 
+    st.session_state.flags = set()
     st.session_state.game_over = False
     st.session_state.won = False
-    st.session_state.flag_mode = False  # Track toggle state
-    st.session_state.message = "Dig carefully! 5 mines are hidden here."
+    st.session_state.flag_mode = False 
+    st.session_state.message = "Good luck (There's 5 mines FYI)"
 
 
 if st.session_state.won:
