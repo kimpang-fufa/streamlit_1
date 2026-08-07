@@ -27,19 +27,19 @@ if user_choice:
     st.success("You win!")
     st.warning("Roll a dice to win you bums not rock, paper, scissors. Odds, I win. Even, you win.")
     
-    with st.spinner("Spinning the wheel to see if you actually win(I know it looks lame, don't judge"):
-        time.sleep(2)
+    with st.spinner("Rolling the dice to see if you actually win(I know it looks lame, don't judge"):
+        time.sleep(5)
     
-    spinner_verdict = random.choice(["WIN", "FAILURE"])
+    spinner_verdict = random.choice(["Even", "Odd"])
     
-    if spinner_verdict == "WIN":
+    if spinner_verdict == "Even":
         st.success("Yipepepeepepe, you're a winner :3")
         st.balloons()
     else:
         st.error("Of course you lost, you never won in the first place :D")
 
   else:
-    st.error("You lose!")
+    st.error("You Odd!")
 
 
 
