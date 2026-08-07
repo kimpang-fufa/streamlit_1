@@ -72,7 +72,7 @@ for r in range(5):
                 label = "🚩" if key_id in st.session_state.flags else "❓"
                 st.button(label, key=f"btn_{key_id}", disabled=True, use_container_width=True)
             else:
-                display_label = "🚩" if key_id in st.session_state.flags else "❓" 
+                display_label = "🚩" if key_id in st.session_state.flags else "" 
                  
                 if st.button(display_label, key=f"btn_{key_id}", use_container_width=True):
                     if st.session_state.flag_mode:
@@ -87,7 +87,6 @@ for r in range(5):
 
                             if st.session_state.board[r][c] == "💣":
                                 st.session_state.game_over = True
-                                st.snow()
                             else:
                                 st.session_state.message = ":D"
                                 
