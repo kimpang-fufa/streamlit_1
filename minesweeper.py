@@ -35,7 +35,7 @@ if "board" not in st.session_state:
 
 
 if st.session_state.won:
-    st.success("CONGRATULATIONS! You cleared all safe spots and won!")
+    st.success("Yipepepepepepe! You won! :3")
 elif st.session_state.game_over:
     st.error("Boom! Game Over! 'o'")
 else:
