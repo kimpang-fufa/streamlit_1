@@ -65,7 +65,7 @@ for r in range(5):
         with cols[c]:
         
             if key_id in st.session_state.revealed:
-                st.button(st.session_state.board[r][c], key=f"btn_{key_id}", disabled=True, use_container_width=True
+                st.button(st.session_state.board[r][c], key=f"btn_{key_id}", disabled=True, use_container_width=True)
             elif st.session_state.game_over and st.session_state.board[r][c] == "💣":
                 st.button("💣", key=f"btn_{key_id}", disabled=True, use_container_width=True)
             elif st.session_state.game_over or st.session_state.won:
