@@ -25,9 +25,9 @@ if user_choice:
       or (user_choice == "Scissors" and comp_choice == "Paper")
   ):
     st.success("You win!")
-    st.warning("Spin a wheel to win you bums not rock, paper, scissors.")
+    st.warning("Roll a dice to win you bums not rock, paper, scissors. Odds, I win. Even, you win.")
     
-    with st.spinner("Spinning the wheel to see if you actually win"):
+    with st.spinner("Spinning the wheel to see if you actually win(I know it looks lame, don't judge"):
         time.sleep(2)
     
     spinner_verdict = random.choice(["WIN", "FAILURE"])
@@ -40,5 +40,7 @@ if user_choice:
 
   else:
     st.error("You lose!")
+
+
 
     
