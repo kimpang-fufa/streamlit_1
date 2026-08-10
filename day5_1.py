@@ -33,7 +33,7 @@ if prompt := st.chat_input("What is up?"):
     with st.chat_message("assistant"):
         message_placeholder = st.empty()
         full_response = ""
-        temp = ollama.chat(model=MODEL, messages=st.session_state.messages)
+        temp = Groq.chat(model=MODEL, messages=st.session_state.messages)
         assistant_response = temp["message"]["content"]
         # Simulate stream of response with milliseconds delay
         for chunk in assistant_response.split():
