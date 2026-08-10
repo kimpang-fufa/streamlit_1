@@ -9,6 +9,7 @@ API_KEY = st.secrets["groq_API_KEY"]
 
 import random
 import time
+client = Groq(api_key=API_KEY)
 MODEL = "llama-3.1-8b-instant"
 st.write("This is an AI chatbot. Please type your questions.")
 
