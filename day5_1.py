@@ -35,8 +35,6 @@ if prompt := st.chat_input("What is up?"):
         full_response = ""
         temp = ollama.chat(model=MODEL, messages=st.session_state.messages)
         assistant_response = temp["message"]["content"]
-            ]
-        )
         # Simulate stream of response with milliseconds delay
         for chunk in assistant_response.split():
             full_response += chunk + " "
