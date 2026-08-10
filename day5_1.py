@@ -2,11 +2,6 @@
 import streamlit as st
 from groq import Groq
 
-#when loading the file locally
-import os
-from dotenv import load_dotenv
-load_dotenv()
-API_KEY = os.getenv("groq_API_KEY")
 
 #when loading the api key from streamlit secrets
 API_KEY = st.secrets["groq_API_KEY"]
