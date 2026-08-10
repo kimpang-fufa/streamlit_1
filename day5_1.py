@@ -33,11 +33,8 @@ if prompt := st.chat_input("What is up?"):
     with st.chat_message("assistant"):
         message_placeholder = st.empty()
         full_response = ""
-        completion = client.chat.completions.create(
-            model=MODEL, 
-            messages=st.session_state.messages
-        )
-        assistant_response = completion.choices[0].message.content
+        temp = groq.chat(model=MODEL, messages=st.session_state.messages)
+        assistant_response = temp["message"]["content"]
         # Simulate stream of response with milliseconds delay
         for chunk in assistant_response.split():
             full_response += chunk + " "
