@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 from groq import Groq
 from pypdf import PdfReader
 import time
-import ollama
+
 
 st.set_page_config(page_title=":D", layout="wide")
 load_dotenv()
@@ -153,8 +153,6 @@ if st.session_state.current_page == "RAG System":
 elif st.session_state.current_page == "Chatbot":
     st.title("Chatbot")
 
-    model_type = st.selectbox("Pick your model type:", options = ["llama-3.1-8b-instant", "qwen2.5:0.5b", "qwen2.5:3b"])
-
     if "messages" not in st.session_state:
         st.session_state.messages = [{"role": "assistant", "content": "Let's start chatting! 👇"}]
 
@@ -170,12 +168,8 @@ elif st.session_state.current_page == "Chatbot":
         with st.chat_message("assistant"):
             message_placeholder = st.empty()
             full_response = ""
-            if "llama" in model_type:
-                temp = client.chat.completions.create(model=model_type, messages=st.session_state.messages)
-                assistant_response = temp.choices[0].message.content
-            else:
-                temp = ollama.chat(model=model_type, messages=st.session_state.messages)
-                assistant_response = temp["message"]["content"]
+            temp = client.chat.completions.create(model=model_type, messages=st.session_state.messages)
+            assistant_response = temp.choices[0].message.content
 
             for chunk in assistant_response.split():
                 full_response += chunk + " "
