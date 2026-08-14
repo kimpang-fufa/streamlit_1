@@ -168,7 +168,7 @@ elif st.session_state.current_page == "Chatbot":
         with st.chat_message("assistant"):
             message_placeholder = st.empty()
             full_response = ""
-            temp = client.chat.completions.create(model=model_type, messages=st.session_state.messages)
+            temp = client.chat.completions.create(model=MODEL, messages=st.session_state.messages)
             assistant_response = temp.choices[0].message.content
 
             for chunk in assistant_response.split():
