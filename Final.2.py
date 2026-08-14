@@ -32,6 +32,7 @@ if "question" not in st.session_state:
 if "messages" not in st.session_state:
     st.session_state.messages = [{"role": "assistant", "content": "Let's start chatting!"}]
 
+
 st.sidebar.title("Sidebar")
 st.sidebar.markdown("---")
 
@@ -151,6 +152,8 @@ if st.session_state.current_page == "RAG System":
 elif st.session_state.current_page == "Chatbot":
     st.title("Chatbot")
 
+    model_type = st.selectbox("Pick your model type:", options = ["llama-3.1-8b-instant", "qwen2.5:0.5b", "qwen2.5:3b"])
+
     if "messages" not in st.session_state:
         st.session_state.messages = [{"role": "assistant", "content": "Let's start chatting! 👇"}]
 
@@ -163,12 +166,15 @@ elif st.session_state.current_page == "Chatbot":
         with st.chat_message("user"):
             st.markdown(prompt)
 
-        # Display assistant response in chat message container
         with st.chat_message("assistant"):
             message_placeholder = st.empty()
             full_response = ""
-            temp = client.chat.completions.create(model=MODEL, messages=st.session_state.messages)
-            assistant_response = temp.choices[0].message.content
+            if "llama" in model_type:
+                temp = client.chat.completions.create(model=model_type, messages=st.session_state.messages)
+                assistant_response = temp.choices[0].message.content
+            else:
+                temp = ollama.chat(model=model_type, messages=st.session_state.messages)
+                assistant_response = temp["message"]["content"]
 
             for chunk in assistant_response.split():
                 full_response += chunk + " "
