@@ -1,3 +1,4 @@
 groq
 chromadb
 pypdf
+ollama
