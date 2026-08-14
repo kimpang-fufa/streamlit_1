@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 from groq import Groq
 from pypdf import PdfReader
 import time
+import ollama
 
 st.set_page_config(page_title=":D", layout="wide")
 load_dotenv()
